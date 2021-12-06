@@ -1,0 +1,18 @@
+[debug] [2021-06-14T11:44:13.928Z] ----------------------------------------------------------------------
+[debug] [2021-06-14T11:44:13.929Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2021-06-14T11:44:13.929Z] CLI Version:   9.12.0
+[debug] [2021-06-14T11:44:13.929Z] Platform:      darwin
+[debug] [2021-06-14T11:44:13.929Z] Node Version:  v14.16.1
+[debug] [2021-06-14T11:44:13.930Z] Time:          Mon Jun 14 2021 13:44:13 GMT+0200 (Central European Summer Time)
+[debug] [2021-06-14T11:44:13.930Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-14T11:44:13.934Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-06-14T11:44:13.954Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-14T11:44:13.955Z] > authorizing via signed-in user (smcepeda@gmail.com)
+[debug] [2021-06-14T11:44:13.955Z] [iam] checking project vevel-trading for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-06-14T11:44:13.956Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-06-14T11:44:13.957Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-14T11:44:14.119Z] <<< HTTP RESPONSE 200 {"date":"Mon, 14 Jun 2021 11:44:14 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-14T11:44:14.168Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/vevel-trading:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

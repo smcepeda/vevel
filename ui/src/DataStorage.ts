@@ -1,6 +1,7 @@
 import { withRouter } from 'react-router';
 import { NewsItem, UserProfile, Asset, Money, Context, MarketItem } from './Model';
 import firebase from "firebase";
+import api_key from './ConfigPrices';
 
 
 export function getUserProfileSnapshot(firestoreRef: firebase.firestore.Firestore, userId: string, onResult: (profile: UserProfile) => any): () => void {
@@ -50,7 +51,7 @@ export async function getAllAssets(store: firebase.firestore.Firestore) : Promis
 }
 
 export async function updatePricesInDB(store: firebase.firestore.Firestore,allAssets : Asset){
-  const API_KEY : string = "9NOSPS751V6QR9O0";
+  const API_KEY : string = api_key;
   let StockSymbol : string = allAssets.name;
   let stockChartXValues = [];
   if (allAssets.type == "crypto") {
@@ -80,7 +81,8 @@ export async function getUserContext(store: firebase.firestore.Firestore, userPr
     const wishlistAssets = await getWishlistAssets(store, userProfile);
     const portfolioAssets = await getPortfolioAssets(store,userProfile);
     const portfolioValue = await getPortfolioValue(userProfile,portfolioAssets);
-    
+
+
     return { 
         wishlistAssets: wishlistAssets,
         portfolioAssets: portfolioAssets,

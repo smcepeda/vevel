@@ -10,9 +10,12 @@
 # testing
 /coverage
 
+#config
+/ui/src/config
+
 # production
-/ui/build
-/build
+# /ui/build
+# /build
 
 # misc
 .DS_Store

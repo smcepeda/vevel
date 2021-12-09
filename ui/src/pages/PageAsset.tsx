@@ -27,6 +27,7 @@ import { firestore } from "../ConfigFirebase";
 import i18n from "../i18n";
 import PageOrderBuy from "./PageOrderBuy";
 import PageOrderSell from "./PageOrderSell";
+import api_key from "../ConfigPrices";
 
 interface Props {
   profile: UserProfile;
@@ -83,7 +84,7 @@ class PageAsset extends React.Component<Props, State> {
 
   fetchStock() {
     const pointerToThis = this;
-    const API_KEY = "9NOSPS751V6QR9O0";
+    const API_KEY = api_key;
     let StockSymbol = this.props.assetId;
     if (this.state.asset.type == "crypto") {
       let API_Call = `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${StockSymbol}&market=USD&apikey=${API_KEY}`;

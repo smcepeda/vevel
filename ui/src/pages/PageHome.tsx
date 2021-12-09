@@ -74,6 +74,28 @@ class PageHome extends React.Component<Props, State> {
     const marketItems = await getMarketItems(firestore);
     const newsItems = await getNewsItems(firestore);
 
+    const wishlistPlaceholder1 = {
+      id: "TSLA",
+      name: "TSLA",
+      price: { quantity: 1133, currencyCode: "CHF" },
+      logo: "/assets/tesla.png",
+      chart: "/assets/chart.png",
+      percentage: "2%",
+      context: "string",
+    };
+    const wishlistPlaceholder2 = {
+      id: "TSLA",
+      name: "MSFT",
+      price: { quantity: 335, currencyCode: "CHF" },
+      logo: "/assets/MSFT.png",
+      chart: "/assets/chart.png",
+      percentage: "3.5%",
+      context: "string",
+    };
+
+    this.props.userContext.wishlistAssets[0] = wishlistPlaceholder1;
+    this.props.userContext.wishlistAssets[1] = wishlistPlaceholder2;
+
     this.setState({
       newsItems: newsItems,
       marketItems: marketItems,

@@ -80,6 +80,34 @@ export async function updateAssetPrices(store: firebase.firestore.Firestore, all
 export async function getUserContext(store: firebase.firestore.Firestore, userProfile : UserProfile) : Promise <Context> {
     const wishlistAssets = await getWishlistAssets(store, userProfile);
     const portfolioAssets = await getPortfolioAssets(store,userProfile);
+
+    const portfolioPlaceholder1 = {
+        id: "TSLA",
+        assetId: "TSLA",
+        name: "TSLA",
+        units: 20,
+        price: { quantity: 1133, currencyCode: "CHF" },
+        logo: "/assets/tesla.png",
+        chart: "/assets/chart.png",
+        percentage: "2%",
+        context: "string",
+      };
+      const portfolioPlaceholder2 = {
+        id: "TSLA",
+        name: "MSFT",
+        assetId: "MSFT",
+        units: 12,
+        price: { quantity: 335, currencyCode: "CHF" },
+        logo: "/assets/MSFT.png",
+        chart: "/assets/chart.png",
+        percentage: "3.5%",
+        context: "string",
+      };
+  
+      portfolioAssets[0] = portfolioPlaceholder1;
+      portfolioAssets[1] = portfolioPlaceholder2;
+
+
     const portfolioValue = await getPortfolioValue(userProfile,portfolioAssets);
 
 
@@ -132,7 +160,9 @@ export async function getAssetsRelevantForUser(userProfile : UserProfile) : Prom
 
 export async function getPortfolioValue(userProfile : UserProfile, portfolioAssets : Asset[]) : Promise<any> {
     const sum : Money = { quantity: 0, currencyCode : userProfile.currencyCode};
-    let assetQty: number[] = userProfile.positions.map(pos => pos.units);
+    // let assetQty: number[] = userProfile.positions.map(pos => pos.units);
+    let assetQty: number[] = portfolioAssets.map(pos => pos.units);
+
     let prices=portfolioAssets.map(item => item.price.quantity);
 
     const produceAndAdd = (assetQty, prices) => {
